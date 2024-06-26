@@ -24,8 +24,8 @@
 - Если окно с игрой Blum называется "TelegramDesktop", то просто нажмите Y\y.
 - Для остановки бота, нажмите на кнопку "q".
 
-# Контакт
-# TG - https://t.me/dmtrcrypto [![Join our Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dmtrcrypto)
+### Контакт
+### TG - https://t.me/dmtrcrypto [![Join our Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dmtrcrypto)
 
 
 # ENGLISH
@@ -50,5 +50,5 @@
 - If the Blum game window is called "TelegramDesktop", then just click Y\y.
 - To stop the bot, click on the "q" button.
 
-# Contact
-# TG - https://t.me/dmtrcrypto [![Join our Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dmtrcrypto)
+### Contact
+### TG - https://t.me/dmtrcrypto [![Join our Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dmtrcrypto)
