@@ -10,7 +10,7 @@ import time
 
 mouse_controller = Controller()
 
-pixel_condition = lambda r, g, b: (r in range(100, 220)) and (g in range(200, 255)) and (b in range(0, 125))
+pixel_condition = lambda r, g, b: (r in range(100, 160)) and (g in range(200, 255)) and (b in range(0, 60))
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
 
@@ -82,7 +82,7 @@ while True:
                 click_x = win_rect[0] + x
                 click_y  = win_rect[1] + y
                 click(click_x + 4, click_y)
-                time.sleep(0.001)
+                time.sleep(0.01)
                 pixel_found = True
                 break
         if pixel_detected:
