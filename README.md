@@ -2,7 +2,7 @@
 
 # TG Channel Creator- https://t.me/dmtrcrypto [![Join our Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dmtrcrypto)
 
-# РУССКИЙ
+## РУССКИЙ
 
 ### Этот бот используется для автоматического нажатия на зеленые звездочки в игре Blum в однопоточном режиме в указанном окне.
 
@@ -24,11 +24,11 @@
 - Если окно с игрой Blum называется "TelegramDesktop", то просто нажмите Y\y.
 - Для остановки бота, нажмите на кнопку "q".
 
-### Контакт
+# Контакт
 ### TG - https://t.me/dmtrcrypto [![Join our Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dmtrcrypto)
 
 
-# ENGLISH
+## ENGLISH
 
 ### This bot is used to automatically click on the green stars in the Blum game in single-threaded mode in the specified window.
 
@@ -50,5 +50,5 @@
 - If the Blum game window is called "TelegramDesktop", then just click Y\y.
 - To stop the bot, click on the "q" button.
 
-### Contact
+## Contact
 ### TG - https://t.me/dmtrcrypto [![Join our Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dmtrcrypto)
