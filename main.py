@@ -10,7 +10,7 @@ import time
 
 mouse_controller = Controller()
 
-pixel_condition = lambda r, g, b: (r in range(100, 160)) and (g in range(200, 255)) and (b in range(0, 60))
+pixel_condition = lambda r, g, b: (r in range(105, 200)) and (g in range(200, 255)) and (b in range(0, 120))
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
 
