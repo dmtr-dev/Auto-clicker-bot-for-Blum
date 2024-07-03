@@ -78,6 +78,7 @@ while True:
 
     pixel_detected = False
     button_detected = False
+    ticket_out = False
 
     if pixel_detected:
         break    
@@ -94,18 +95,23 @@ while True:
                 break
             
             if (y >= height - 100 and x >= width - 50) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y':
-                time.sleep(random.uniform(1, 2))
+                time.sleep(2)
                 click_x = win_rect[0] + x
                 click_y = win_rect[1] + y
-                click(click_x + random.uniform(1, 2), click_y + random.uniform(1, 2))
+                click(click_x, click_y)
+                time.sleep(0.1)
                 button_detected = True
                 break
+
             if (y >= height - 100 and x >= width - 50) and (r, g, b) == (40, 40, 40):
                 print("\n")
-                logger.info("Tickets are out.")
-                print("\n")
-                logger.info("Press Enter to Exit...")
+                logger.warning("Tickets are out.")
+                logger.warning("Press Enter to Exit...")
                 input()
+                ticket_out = True
                 break
-        if button_detected:
+            
+        if button_detected or ticket_out:
             break
+    if ticket_out:
+        break
