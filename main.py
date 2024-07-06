@@ -11,7 +11,9 @@ import time
 mouse_controller = Controller()
 
 def pixel_condition(r, g, b):
-    return (r in range(105, 200) and g in range(200, 255) and b in range(0, 120))
+    return ((r in range(50, 130) and g in range(90, 125) and b in range(80, 120)) or 
+            (r in range(240, 255) and g in range(1, 60) and b in range(165, 220)))
+
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
 
@@ -45,7 +47,8 @@ else:
     print("\n")
     logger.info("Use the 'q' button to pause")
 
-paused = False
+paused = True
+logger.info('Mode - Stopped')
 
 while True:
     if keyboard.is_pressed('q'):
@@ -78,14 +81,24 @@ while True:
 
     pixel_detected = False
     button_detected = False
-    ticket_out = False
 
     if pixel_detected:
         break    
 
-    for x in range(0, width, 10):
-        for y in range(0, height, 10):
+    for x in range(0, width, 20):
+        for y in range(200, height, 20):
             r, g, b = screenshot.getpixel((x, y))
+
+            if (y >= 750 and x >= 225 <= 275) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y':
+                logger.info("Play button click.")
+                time.sleep(2)
+                click_x = win_rect[0] + x
+                click_y = win_rect[1] + y
+                click(click_x, click_y)
+                time.sleep(0.2)
+                button_detected = True
+                break
+            
             if pixel_condition(r, g, b):
                 click_x = win_rect[0] + x
                 click_y = win_rect[1] + y
@@ -94,24 +107,5 @@ while True:
                 pixel_detected = True
                 break
             
-            if (y >= height - 100 and x >= width - 50) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y':
-                time.sleep(2)
-                click_x = win_rect[0] + x
-                click_y = win_rect[1] + y
-                click(click_x, click_y)
-                time.sleep(0.1)
-                button_detected = True
-                break
-
-            if (y >= height - 100 and x >= width - 50) and (r, g, b) == (40, 40, 40):
-                print("\n")
-                logger.warning("Tickets are out.")
-                logger.warning("Press Enter to Exit...")
-                input()
-                ticket_out = True
-                break
-            
-        if button_detected or ticket_out:
+        if button_detected:
             break
-    if ticket_out:
-        break
