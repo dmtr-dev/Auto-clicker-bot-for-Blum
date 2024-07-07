@@ -48,13 +48,13 @@ else:
     logger.info("Use the 'q' button to pause")
 
 paused = True
-logger.info('Mode - Stopped')
+logger.info('Mode - Stop')
 
 while True:
     if keyboard.is_pressed('q'):
         paused = not paused
         if paused:
-            logger.info('Mode - Stopped')
+            logger.info('Mode - Stop')
         else:
             logger.info('Mode - Work')
         time.sleep(0.25)
@@ -90,7 +90,7 @@ while True:
         for y in range(200, height, 20):
             r, g, b = screenshot.getpixel((x, y))
             current_time = time.time()
-
+            
             if (y >= 750 and 225 <= x <= 275) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y' and current_time - last_check_time >= 5:
                 logger.info("Play button click.")
                 time.sleep(2)
