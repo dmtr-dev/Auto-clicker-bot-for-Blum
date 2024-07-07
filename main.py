@@ -83,11 +83,11 @@ while True:
     button_detected = False
     last_check_time = time.time()
 
-    # if pixel_detected:
-    #     break    
+    if pixel_detected:
+        break    
 
-    for x in range(0, width, 15):
-        for y in range(200, height, 15):
+    for x in range(0, width, 20):
+        for y in range(200, height, 20):
             r, g, b = screenshot.getpixel((x, y))
             current_time = time.time()
 
@@ -110,5 +110,5 @@ while True:
                 pixel_detected = True
                 break
             
-        if button_detected or pixel_detected:
+        if button_detected:
             break
