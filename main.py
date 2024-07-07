@@ -81,15 +81,17 @@ while True:
 
     pixel_detected = False
     button_detected = False
+    last_check_time = time.time()
 
-    if pixel_detected:
-        break    
+    # if pixel_detected:
+    #     break    
 
-    for x in range(0, width, 20):
-        for y in range(200, height, 20):
+    for x in range(0, width, 15):
+        for y in range(200, height, 15):
             r, g, b = screenshot.getpixel((x, y))
+            current_time = time.time()
 
-            if (y >= 750 and x >= 225 <= 275) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y':
+            if (y >= 750 and 225 <= x <= 275) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y' and current_time - last_check_time >= 5:
                 logger.info("Play button click.")
                 time.sleep(2)
                 click_x = win_rect[0] + x
@@ -97,6 +99,7 @@ while True:
                 click(click_x, click_y)
                 time.sleep(0.2)
                 button_detected = True
+                last_check_time = current_time
                 break
             
             if pixel_condition(r, g, b):
@@ -107,5 +110,5 @@ while True:
                 pixel_detected = True
                 break
             
-        if button_detected:
+        if button_detected or pixel_detected:
             break
