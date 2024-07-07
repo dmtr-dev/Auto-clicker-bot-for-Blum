@@ -50,6 +50,8 @@ else:
 paused = True
 logger.info('Mode - Stop')
 
+last_check_time = time.time()
+
 while True:
     if keyboard.is_pressed('q'):
         paused = not paused
@@ -81,7 +83,6 @@ while True:
 
     pixel_detected = False
     button_detected = False
-    last_check_time = time.time()
 
     if pixel_detected:
         break    
@@ -93,7 +94,7 @@ while True:
             
             if (y >= 750 and 225 <= x <= 275) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y' and current_time - last_check_time >= 5:
                 logger.info("Play button click.")
-                time.sleep(2)
+                time.sleep(3)
                 click_x = win_rect[0] + x
                 click_y = win_rect[1] + y
                 click(click_x, click_y)
