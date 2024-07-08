@@ -2,7 +2,7 @@ from pynput.mouse import Button, Controller
 from ctypes import windll
 from loguru import logger
 from sys import stderr
-import pyautogui as pag
+import pyautogui
 import pygetwindow as gw
 import keyboard
 import random
@@ -79,7 +79,7 @@ while True:
         telegram_window.minimize()
         telegram_window.restore()
 
-    screenshot = pag.screenshot(region=win_rect)
+    screenshot = pyautogui.screenshot(region=win_rect)
     width, height = screenshot.size
 
     pixel_detected = False
@@ -100,11 +100,14 @@ while True:
 
     if time.time() - last_check_time > 5 and input_button.lower() == 'y':
         last_check_time = time.time()
-        location = pag.locateOnScreen(image_path, region=win_rect, confidence=0.9)
-        if location:
-            click_x, click_y = pag.center(location)
-            click(click_x, click_y)
-            logger.success("Play button clicked")
-            time.sleep(0.2)
+        try:
+            location = pyautogui.locateOnScreen(image_path, region=win_rect, confidence=0.9)
+            if location:
+                click_x, click_y = pyautogui.center(location)
+                click(click_x, click_y)
+                logger.success("Play button clicked")
+                time.sleep(0.2)
+        except pyautogui.ImageNotFoundException:
+            continue
 
 input("Press Enter to Exit...")
