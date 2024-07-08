@@ -25,6 +25,7 @@
 5.  **Запускаем файл `main.py` двойным нажатием**
 
 # Детали
+- Изображение с кнопкой Play должно находиться в той же папке, где и файл main.py.
 - Если окно с игрой Blum называется "TelegramDesktop", то просто нажмите Y\y.
 - Для остановки бота, нажмите на кнопку "q". При каждом запуске программа находится в Остановленном режиме, чтобы можно было нажать на кнопку Play на главном меню, после нажатия переводим режим в Рабочий.
 - Бот может автоматически играть до тех пор, пока все тикеты не будут потрачены. При старте программы будет выбор, включить функцию или нет.
@@ -56,6 +57,7 @@
 5.  **Run the file `main.py` double tap**
 
 # Details
+- The image with the Play button should be in the same folder as the file main.py.
 - If the Blum game window is called "Telegram Desktop", then just click Y\y.
 - To stop the bot, click on the "q" button. Each time the program is started, it is in Stopped mode so that you can press the Play button on the main menu, after clicking, you switch the mode to Working mode.
 - The bot can automatically play until all tickets are spent. At the start of the program, there will be a choice whether to enable the function or not.
