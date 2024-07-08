@@ -7,13 +7,13 @@ import pygetwindow as gw
 import keyboard
 import random
 import time
+import os
 
 mouse_controller = Controller()
 
 def pixel_condition(r, g, b):
     return ((r in range(50, 130) and g in range(90, 125) and b in range(80, 120)) or 
             (r in range(240, 255) and g in range(1, 60) and b in range(165, 220)))
-
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
 
@@ -51,6 +51,7 @@ paused = True
 logger.info('Mode - Stop')
 
 last_check_time = time.time()
+image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Button_play.png")
 
 while True:
     if keyboard.is_pressed('q'):
@@ -82,7 +83,6 @@ while True:
     width, height = screenshot.size
 
     pixel_detected = False
-    button_detected = False
 
     if pixel_detected:
         break    
@@ -90,19 +90,6 @@ while True:
     for x in range(0, width, 20):
         for y in range(200, height, 20):
             r, g, b = screenshot.getpixel((x, y))
-            current_time = time.time()
-            
-            if (y >= 750 and 225 <= x <= 275) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y' and current_time - last_check_time >= 10:
-                logger.info("Play button click.")
-                time.sleep(3)
-                click_x = win_rect[0] + x
-                click_y = win_rect[1] + y
-                click(click_x, click_y)
-                time.sleep(0.2)
-                button_detected = True
-                last_check_time = current_time
-                break
-            
             if pixel_condition(r, g, b):
                 click_x = win_rect[0] + x
                 click_y = win_rect[1] + y
@@ -110,6 +97,14 @@ while True:
                 time.sleep(0.001)
                 pixel_detected = True
                 break
-            
-        if button_detected:
-            break
+
+    if time.time() - last_check_time > 5 and input_button.lower() == 'y':
+        last_check_time = time.time()
+        location = pag.locateOnScreen(image_path, region=win_rect, confidence=0.9)
+        if location:
+            click_x, click_y = pag.center(location)
+            click(click_x, click_y)
+            logger.success("Play button clicked")
+            time.sleep(0.2)
+
+input("Press Enter to Exit...")
