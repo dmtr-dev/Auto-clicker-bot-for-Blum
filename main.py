@@ -92,7 +92,7 @@ while True:
             r, g, b = screenshot.getpixel((x, y))
             current_time = time.time()
             
-            if (y >= 750 and 225 <= x <= 275) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y' and current_time - last_check_time >= 5:
+            if (y >= 750 and 225 <= x <= 275) and (r, g, b) == (255, 255, 255) and input_button.lower() == 'y' and current_time - last_check_time >= 10:
                 logger.info("Play button click.")
                 time.sleep(3)
                 click_x = win_rect[0] + x
