@@ -82,11 +82,6 @@ while True:
     screenshot = pyautogui.screenshot(region=win_rect)
     width, height = screenshot.size
 
-    pixel_detected = False
-
-    if pixel_detected:
-        break    
-
     for x in range(0, width, 20):
         for y in range(200, height, 20):
             r, g, b = screenshot.getpixel((x, y))
@@ -95,7 +90,6 @@ while True:
                 click_y = win_rect[1] + y
                 click(click_x + random.uniform(1, 2), click_y + random.uniform(1, 2))
                 time.sleep(0.001)
-                pixel_detected = True
                 break
 
     if time.time() - last_check_time > 5 and input_button.lower() == 'y':
