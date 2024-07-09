@@ -12,8 +12,8 @@ import os
 mouse_controller = Controller()
 
 def pixel_condition(r, g, b):
-    return ((r in range(50, 130) and g in range(90, 125) and b in range(80, 120)) or 
-            (r in range(240, 255) and g in range(1, 60) and b in range(165, 220)))
+    return (r in range(95, 210) and g in range(205, 255) and b in range(0, 120))
+
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
 
@@ -83,7 +83,7 @@ while True:
     width, height = screenshot.size
 
     for x in range(0, width, 20):
-        for y in range(200, height, 20):
+        for y in range(0, height, 20):
             r, g, b = screenshot.getpixel((x, y))
             if pixel_condition(r, g, b):
                 click_x = win_rect[0] + x
