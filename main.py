@@ -83,8 +83,8 @@ while True:
     screenshot = pyautogui.screenshot(region=win_rect)
     width, height = screenshot.size
 
-    for x in range(0, width, 30): # parameters for slowing down the bot
-        for y in range(0, height, 30): # parameters for slowing down the bot
+    for x in range(0, width, 20): # parameters for slowing down the bot
+        for y in range(0, height, 20): # parameters for slowing down the bot
             r, g, b = screenshot.getpixel((x, y))
             if pixel_condition(r, g, b):
                 click_x = win_rect[0] + x
