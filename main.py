@@ -12,8 +12,8 @@ import os
 mouse_controller = Controller()
 
 def pixel_condition(r, g, b):
-    return (r in range(95, 210) and g in range(205, 255) and b in range(0, 120))
-            # (r in range(70, 130) and g in range(150, 220) and b in range(200, 235)) # color for freezing
+    return ((r in range(95, 210) and g in range(205, 255) and b in range(0, 120)) or
+            (r in range(70, 130) and g in range(150, 220) and b in range(200, 235))) # color for freezing
 
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
@@ -83,8 +83,8 @@ while True:
     screenshot = pyautogui.screenshot(region=win_rect)
     width, height = screenshot.size
 
-    for x in range(0, width, 20): # parameters for slowing down the bot
-        for y in range(0, height, 20): # parameters for slowing down the bot
+    for x in range(0, width, 25): # parameters for slowing down the bot
+        for y in range(0, height, 25): # parameters for slowing down the bot
             r, g, b = screenshot.getpixel((x, y))
             if pixel_condition(r, g, b):
                 click_x = win_rect[0] + x
