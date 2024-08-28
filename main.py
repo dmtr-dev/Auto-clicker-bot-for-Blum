@@ -21,7 +21,7 @@ windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dm
 logger.remove()
 logger.add(stderr, format='<cyan>{time:HH:mm:ss}</cyan> | <level>{level:<8}</level> | <cyan><bold>{line}</bold></cyan> | <magenta>Message:</magenta> <level><underline>{message}</underline></level>')
 
-print("\n\n\033[94mTG Channel Creator - https://t.me/dmtrcrypto\033[0m\n")
+print("\n\nTG Channel Creator - https://t.me/dmtrcrypto")
 
 def click(x, y):
     mouse_controller.position = (x, y)
@@ -53,6 +53,7 @@ logger.info('Mode - Stop')
 
 last_check_time = time.time()
 image_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Button_play.png")
+image_start_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Button_play_start.png")
 
 while True:
     if keyboard.is_pressed('q'):
@@ -102,6 +103,14 @@ while True:
                 click(click_x, click_y)
                 logger.success("Play button clicked")
                 time.sleep(0.2)
+
+            second_location = pyautogui.locateOnScreen(image_start_path, region=win_rect, confidence=0.9)
+            if second_location:
+                click_x, click_y = pyautogui.center(second_location)
+                click(click_x, click_y)
+                logger.success("Play-start button clicked")
+                time.sleep(0.2)
+                
         except pyautogui.ImageNotFoundException:
             continue
 
