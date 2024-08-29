@@ -113,5 +113,8 @@ while True:
                 
         except pyautogui.ImageNotFoundException:
             continue
+        except ValueError:
+            continue
+
 
 input("Press Enter to Exit...")
