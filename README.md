@@ -2,6 +2,8 @@
 
 # TG Channel Creator- https://t.me/dmtrcrypto [![Join our Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/dmtrcrypto)
 
+![image](https://github.com/user-attachments/assets/10fb6a86-de07-4b69-9113-41a612f10ee6)
+
 ## РУССКИЙ
 
 ### Этот бот используется для автоматического нажатия на зеленые звездочки в игре Blum в однопоточном режиме в указанном окне.
