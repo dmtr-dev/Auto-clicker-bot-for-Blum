@@ -1,9 +1,10 @@
 from pynput.mouse import Button, Controller
+from termcolor import cprint
 from ctypes import windll
 from loguru import logger
+import pygetwindow as gw
 from sys import stderr
 import pyautogui
-import pygetwindow as gw
 import keyboard
 import random
 import time
@@ -13,15 +14,14 @@ mouse_controller = Controller()
 
 def pixel_condition(r, g, b):
     return ((r in range(95, 210) and g in range(205, 255) and b in range(0, 120)) or
-            (r in range(70, 130) and g in range(150, 220) and b in range(200, 235))) # color for freezing
-
+            (r in range(70, 130) and g in range(150, 220) and b in range(200, 235)) or      # color for freezing
+            (r == 255 and g == 255 and b == 255))        # color for DOGS
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
+cprint("\nTG Channel - https://t.me/dmtrcrypto\n\n", 'magenta')
 
 logger.remove()
 logger.add(stderr, format='<cyan>{time:HH:mm:ss}</cyan> | <level>{level:<8}</level> | <cyan><bold>{line}</bold></cyan> | <magenta>Message:</magenta> <level><underline>{message}</underline></level>')
-
-print("\n\nTG Channel Creator - https://t.me/dmtrcrypto")
 
 def click(x, y):
     mouse_controller.position = (x, y)
@@ -37,7 +37,6 @@ if input_window_name.lower() == 'y':
     window_name = "TelegramDesktop"
 else:
     window_name = input_window_name
-
 
 check_window = gw.getWindowsWithTitle(window_name)
 if not check_window:
@@ -72,8 +71,8 @@ while True:
         logger.error("Press Enter to Exit...")
         input()
         break
-
-    win_rect  = (telegram_window.left, telegram_window.top, telegram_window.width, telegram_window.height)
+    
+    win_rect  = (telegram_window.left + 12, telegram_window.top + 140, telegram_window.width - 24, telegram_window.height - 200)
 
     try:
         telegram_window.activate()
@@ -91,25 +90,25 @@ while True:
                 click_x = win_rect[0] + x
                 click_y = win_rect[1] + y
                 click(click_x + random.uniform(1, 2), click_y + random.uniform(1, 2))
-                time.sleep(0.01) # parameters for slowing down the bot
+                time.sleep(0.03) # parameters for slowing down the bot
                 break
 
     if time.time() - last_check_time > 5 and input_button.lower() == 'y':
         last_check_time = time.time()
         try:
-            location = pyautogui.locateOnScreen(image_path, region=win_rect, confidence=0.9)
+            location = pyautogui.locateOnScreen(image_path, region=win_rect, confidence=0.8)
             if location:
                 click_x, click_y = pyautogui.center(location)
                 click(click_x, click_y)
                 logger.success("Play button clicked")
-                time.sleep(0.2)
+                time.sleep(0.2)                
 
             second_location = pyautogui.locateOnScreen(image_start_path, region=win_rect, confidence=0.9)
             if second_location:
                 click_x, click_y = pyautogui.center(second_location)
                 click(click_x, click_y)
                 logger.success("Play-start button clicked")
-                time.sleep(0.2)
+                time.sleep(0.2)                
                 
         except pyautogui.ImageNotFoundException:
             continue
