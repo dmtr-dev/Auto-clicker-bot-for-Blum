@@ -13,9 +13,10 @@ import os
 mouse_controller = Controller()
 
 def pixel_condition(r, g, b):
-    return ((r in range(95, 210) and g in range(205, 255) and b in range(0, 120)) or
-            (r in range(70, 130) and g in range(150, 220) and b in range(200, 235)) or      # color for freezing
-            (r == 255 and g == 255 and b == 255))        # color for DOGS
+    return ((r in range(220, 230) and g in range(115, 130) and b in range(45, 55)) or        # color Pumpkin
+            (r in range(125, 131) and g in range(215, 222) and b in range(229, 233)) or      # color Freezing
+            (r in range(134, 141) and g in range(126, 132) and b in range(126, 132)) or      # color Bomb
+            (r in range(178, 206) and g in range(178, 206) and b in range(178, 206)))        # color Bomb 2
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
 cprint("\nTG Channel - https://t.me/dmtrcrypto\n\n", 'magenta')
@@ -90,7 +91,7 @@ while True:
                 click_x = win_rect[0] + x
                 click_y = win_rect[1] + y
                 click(click_x + random.uniform(1, 2), click_y + random.uniform(1, 2))
-                time.sleep(0.03) # parameters for slowing down the bot
+                time.sleep(0.01)
                 break
 
     if time.time() - last_check_time > 5 and input_button.lower() == 'y':
