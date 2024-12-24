@@ -22,7 +22,7 @@
 4. **Устанавливает библиотеки в той же консоли:**
 
     ```
-    pip install pynput loguru pyautogui pygetwindow keyboard opencv-python termcolor
+    pip install pynput loguru pyautogui pygetwindow keyboard opencv-python termcolor pillow
     ```
 5.  **Запускаем файл `main.py` двойным нажатием**
 
@@ -54,7 +54,7 @@
 4. **Installs Libraries in the same console:**
 
     ```
-    pip install pynput loguru pyautogui pygetwindow keyboard opencv-python
+    pip install pynput loguru pyautogui pygetwindow keyboard opencv-python termcolor pillow
     ```
 5.  **Run the file `main.py` double tap**
 
