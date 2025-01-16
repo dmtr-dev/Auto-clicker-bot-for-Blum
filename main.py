@@ -12,15 +12,7 @@ import time
 mouse_controller = Controller()
 
 def pixel_condition(r, g, b):
-    return ((r in range(200, 255) and g in range(34, 65) and b in range(184, 200)) or         # candy
-            (r in range(87, 129) and g in range(160, 203) and b in range(23, 60)) or          # berries
-            (r in range(209, 239) and g in range(0, 14) and b in range(149, 167)) or          # head
-            (r in range(234, 234) and g in range(250, 251) and b in range(120, 122)) or       # head
-            (r in range(132, 180) and g in range(56, 88) and b in range(7, 38)) or            # gingerbread
-            (r in range(43, 58) and g in range(88, 111) and b in range(24, 36)) or            # tree
-            (r in range(176, 183) and g in range(236, 242) and b in range(250, 255)) or       # candle
-            (r in range(196, 255) and g in range(15, 32) and b in range(172, 195)))           # boots
-
+    return ((r in range(58, 132) and g in range(218, 255) and b in range(0, 43)))
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
 cprint("\nTG Channel - https://t.me/dmtrcrypto\n\n", 'magenta')
@@ -51,6 +43,8 @@ paused = True
 logger.info('Mode: Stopped')
 
 last_check_time = time.time()
+last_auto_click_time = time.time()
+auto_click_interval = 20 * 60
 
 while True:
     if keyboard.is_pressed('q'):
@@ -77,8 +71,8 @@ while True:
     screenshot = pyautogui.screenshot(region=win_rect)
     width, height = screenshot.size
 
-    for x in range(0, width, 25): # parameters for slowing down the bot
-        for y in range(0, height, 25): # parameters for slowing down the bot
+    for x in range(0, width, 35): # parameters for slowing down the bot
+        for y in range(0, height, 35): # parameters for slowing down the bot
             r, g, b = screenshot.getpixel((x, y))
             if pixel_condition(r, g, b):
                 click_x = win_rect[0] + x
@@ -87,9 +81,16 @@ while True:
                 time.sleep(0.02)
                 break
 
+    # if time.time() - last_auto_click_time >= auto_click_interval:
+    #     logger.info("20 minutes passed. Performing automatic click...")
+    #     click(win_rect[0] + 370, win_rect[1] - 60)
+    #     last_auto_click_time = time.time()
+    #     time.sleep(1)
+    #     click(win_rect[0] + 360, win_rect[1] - 60)
+
     if time.time() - last_check_time > 8 and input_button.lower() == 'y':
         last_check_time = time.time()
-        click(win_rect[0] + random.randint(348, 352), win_rect[1] + random.randint(608, 612))
+        click(win_rect[0] + 350, win_rect[1] + 608)
         time.sleep(0.1)
 
 
