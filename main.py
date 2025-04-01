@@ -28,7 +28,7 @@ def click(x, y):
 input_window_name = input('\nEnter the name of the window with Blum game enabled (Y/y - TelegramDesktop): ')
 input_button = input("Do you want the bot to play continuously without your participation until you run out of tickets (y/n): ")
 
-window_name = "TelegramDesktop" if input_window_name.lower() == 'y' else input_window_name
+window_name = "Blum" if input_window_name.lower() == 'y' else input_window_name
 
 check_window = gw.getWindowsWithTitle(window_name)
 if not check_window:
@@ -71,8 +71,8 @@ while True:
     screenshot = pyautogui.screenshot(region=win_rect)
     width, height = screenshot.size
 
-    for x in range(0, width, 35): # parameters for slowing down the bot
-        for y in range(0, height, 35): # parameters for slowing down the bot
+    for x in range(0, width, 30): # parameters for slowing down the bot
+        for y in range(0, height, 30): # parameters for slowing down the bot
             r, g, b = screenshot.getpixel((x, y))
             if pixel_condition(r, g, b):
                 click_x = win_rect[0] + x
@@ -90,7 +90,7 @@ while True:
 
     if time.time() - last_check_time > 8 and input_button.lower() == 'y':
         last_check_time = time.time()
-        click(win_rect[0] + 350, win_rect[1] + 608)
+        click(win_rect[0] + 435, win_rect[1] + 608)
         time.sleep(0.1)
 
 
