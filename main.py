@@ -11,8 +11,10 @@ import time
 
 mouse_controller = Controller()
 
+# (r in range(58, 132) and g in range(218, 255) and b in range(0, 43))
 def pixel_condition(r, g, b):
-    return ((r in range(58, 132) and g in range(218, 255) and b in range(0, 43)))
+    return ((r in range(240, 255) and g in range(0, 5) and b in range(228, 240)) or
+            (r in range(228, 235) and g in range(245, 255) and b in range(117, 128)))
 
 windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
 cprint("\nTG Channel - https://t.me/dmtrcrypto\n\n", 'magenta')
@@ -25,7 +27,7 @@ def click(x, y):
     mouse_controller.press(Button.left)
     mouse_controller.release(Button.left)
 
-input_window_name = input('\nEnter the name of the window with Blum game enabled (Y/y - TelegramDesktop): ')
+input_window_name = input('\nEnter the name of the window with Blum game enabled (Y/y - Blum): ')
 input_button = input("Do you want the bot to play continuously without your participation until you run out of tickets (y/n): ")
 
 window_name = "Blum" if input_window_name.lower() == 'y' else input_window_name
