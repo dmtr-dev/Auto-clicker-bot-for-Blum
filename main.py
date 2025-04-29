@@ -16,7 +16,7 @@ def pixel_condition(r, g, b):
     return ((r in range(240, 255) and g in range(0, 5) and b in range(228, 240)) or
             (r in range(228, 235) and g in range(245, 255) and b in range(117, 128)))
 
-windll.kernel32.SetConsoleTitleW('Auto clicker bot for Blum | by https://t.me/dmtrcrypto')
+windll.kernel32.SetConsoleTitleW('Auto clicker bot | by https://t.me/dmtrcrypto')
 cprint("\nTG Channel - https://t.me/dmtrcrypto\n\n", 'magenta')
 
 logger.remove()
@@ -30,7 +30,7 @@ def click(x, y):
 input_window_name = input('\nEnter the name of the window with Blum game enabled (Y/y - Blum): ')
 input_button = input("Do you want the bot to play continuously without your participation until you run out of tickets (y/n): ")
 
-window_name = "Blum" if input_window_name.lower() == 'y' else input_window_name
+window_name = ": Blum" if input_window_name.lower() == 'y' else input_window_name
 
 check_window = gw.getWindowsWithTitle(window_name)
 if not check_window:
